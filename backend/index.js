@@ -24,6 +24,7 @@ conn.on("disconnected", function () {
 });
 conn.on("error", console.error.bind(console, "connection error:"));
 
+app.use("/aboutus", require("./routes/AboutRoute"));
 app.use("/faq", require("./routes/faqRoute"));
 app.use(cors);
 app.listen(port, () => {
