@@ -25,7 +25,7 @@ conn.on("disconnected", function () {
 conn.on("error", console.error.bind(console, "connection error:"));
 
 app.use("/faq", require("./routes/faqRoute"));
-app.use("/", require("./routes/testimonialsRoute"));
+app.use("/testimonials", require("./routes/testimonialsRoute"));
 app.use(cors);
 app.listen(port, () => {
   console.log(`listening at http://localhost:${port}`);
