@@ -29,7 +29,7 @@ app.use("/aboutus", require("./routes/AboutRoute"));
 app.use("/faq", require("./routes/faqRoute"));
 app.use("/testimonials", require("./routes/testimonialsRoute"));
 app.use("/login", require("./routes/auth"));
-
+app.use("/admin/addTestimonials", require("./routes/adminTestimonialsRoute"));
 app.use(cors());
 
 app.listen(port, () => {
