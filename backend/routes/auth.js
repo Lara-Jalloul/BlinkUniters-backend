@@ -31,13 +31,13 @@ router.post("/", (req, res) => {
 
       jwt.verify(access_token, process.env.TOKEN_KEY, (err, decoded) => {
         if (err) {
-          res.status(500).json({ erros: err });
+          res.status(500).json({ errors: err });
         }
         if (decoded) {
           return res.status(200).json({
             success: true,
             token: access_token,
-            message: admin,
+            message: "info has been added",
           });
         }
       });
