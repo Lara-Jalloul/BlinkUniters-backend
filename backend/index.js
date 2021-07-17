@@ -34,6 +34,10 @@ app.use(
   require("./routes/adminAddTestimonialsRoute")
 );
 app.use(
+  "/admin/deleteTestimonials/",
+  require("./routes/AdminDelTestimonialsRoute")
+);
+app.use(
   "/admin/readTestimonials",
   require("./routes/adminReadTestimonialsRoute")
 );
