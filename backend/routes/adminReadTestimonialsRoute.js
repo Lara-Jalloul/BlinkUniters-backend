@@ -4,10 +4,9 @@ const Testimonials = require("../models/Testimonials");
 router.get("/", (req, res) => {
   Testimonials.find()
     .then((data) => {
-      if (!res.ok) {
-        console.log("error");
+      if (res) {
+        res.json(data);
       }
-      res.json(data);
     })
     .catch((e) => {
       res.json(e.message);
