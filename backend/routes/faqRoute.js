@@ -4,7 +4,7 @@ const Faq = require("../models/Faq");
 router.get("/", (req, res) => {
   Faq.find()
     .then((data) => {
-      if (!res.ok) {
+      if (!res) {
         console.log("error");
       }
       res.json(data);
