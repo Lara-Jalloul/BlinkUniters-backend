@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Testimonials = require("../models/Testimonials");
-console.log("route");
+
 router.delete("/:id", (req, res) => {
   let id = req.params.id;
   console.log(id);

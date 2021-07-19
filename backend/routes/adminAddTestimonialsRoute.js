@@ -4,7 +4,6 @@ const Testimonials = require("../models/Testimonials");
 
 router.post("/", (req, res) => {
   let { writer_name, comment } = req.body;
-  console.log(writer_name, comment);
   if (!writer_name || !comment) {
     res.status(400).json({
       success: false,

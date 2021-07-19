@@ -15,9 +15,11 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   }
 );
 var conn = mongoose.connection;
+
 conn.on("connected", function () {
   console.log("database is connected successfully");
 });
@@ -41,6 +43,7 @@ app.use(
   "/admin/readTestimonials",
   require("./routes/adminReadTestimonialsRoute")
 );
+app.use("/admin/updateTestimonials/", require("./routes/AdminUpdTestimonials"));
 app.use(cors());
 
 app.listen(port, () => {
