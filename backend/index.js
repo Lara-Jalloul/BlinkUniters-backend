@@ -44,6 +44,7 @@ app.use(
   require("./routes/adminReadTestimonialsRoute")
 );
 app.use("/admin/updateTestimonials/", require("./routes/AdminUpdTestimonials"));
+app.use("/admin/addFAQ", require("./routes/AdminAddFAQ"));
 app.use(cors());
 
 app.listen(port, () => {
