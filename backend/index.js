@@ -2,11 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-require("dotenv").config();
+require("dotenv").config(); 
 const port = 5000;
 const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
+
+
 
 const BandModel = require("./models/Bands");
 const FaqModel = require("./models/Faq");
@@ -28,7 +30,10 @@ conn.on("error", console.error.bind(console, "connection error:"));
 app.use("/aboutus", require("./routes/AboutRoute"));
 app.use("/faq", require("./routes/faqRoute"));
 app.use("/testimonials", require("./routes/testimonialsRoute"));
+app.use("/contactus", require("./routes/ContactRoute"));  
 app.use("/login", require("./routes/auth"));
+
+
 
 app.use(cors());
 
