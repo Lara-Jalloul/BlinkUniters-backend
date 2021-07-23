@@ -45,8 +45,9 @@ app.use(
 );
 app.use("/admin/updateTestimonials/", require("./routes/AdminUpdTestimonials"));
 app.use("/admin/addFAQ", require("./routes/AdminAddFAQ"));
+app.use("/admin/readFAQ", require("./routes/AdminReadFAQ"));
+app.use("/admin/deleteFAQ/", require("./routes/AdminDelFAQ"));
 app.use(cors());
-
 app.listen(port, () => {
   console.log(`listening at http://localhost:${port}`);
 });
