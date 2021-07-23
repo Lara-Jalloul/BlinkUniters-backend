@@ -1,8 +1,5 @@
 const mongoose = require("mongoose");
-// const faker = require('faker')
 
-
-// mongoose.connect('')
 const NewSchema = new mongoose.Schema({
   news: {
     type: String,
