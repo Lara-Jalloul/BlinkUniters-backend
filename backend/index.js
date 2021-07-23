@@ -17,9 +17,11 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   }
 );
 var conn = mongoose.connection;
+
 conn.on("connected", function () {
   console.log("database is connected successfully");
 });
@@ -32,10 +34,20 @@ app.use("/faq", require("./routes/faqRoute"));
 app.use("/testimonials", require("./routes/testimonialsRoute"));
 app.use("/contactus", require("./routes/ContactRoute"));  
 app.use("/login", require("./routes/auth"));
-app.use("/contactus", require("./routes/ContactRoute"));
-
-
-
+app.use(
+  "/admin/addTestimonials",
+  require("./routes/adminAddTestimonialsRoute")
+);
+app.use(
+  "/admin/deleteTestimonials/",
+  require("./routes/AdminDelTestimonialsRoute")
+);
+app.use(
+  "/admin/readTestimonials",
+  require("./routes/adminReadTestimonialsRoute")
+);
+app.use("/admin/updateTestimonials/", require("./routes/AdminUpdTestimonials"));
+app.use("/admin/addFAQ", require("./routes/AdminAddFAQ"));
 app.use(cors());
 
 app.listen(port, () => {
