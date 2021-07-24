@@ -3,27 +3,15 @@ const router = express.Router();
 const nodemailer = require("nodemailer");
 const Contact = require("../models/Contact");
 
-
-
-// app.use(express.static('public'));
-// app.use(express.json());
-
-// app.get('/',(req,res)=>{
-//   res.sendFile(__dirname + '/backend/models/Contact.js')
-// })
-
-// app.post('/',(req,res)=>{
-//   console.log(req.body)
-// })
-
-
 router.route("/").get(async (req, res) => {
     Contact.find().then((foundData) => res.json(foundData));
   });
 
 
 const contactEmail = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port : '465',
+    secure:true,
     auth: {
       user: 'ranyasmael@gmail.com',
       pass: "rinder@7",
@@ -44,7 +32,7 @@ const contactEmail = nodemailer.createTransport({
         const message = req.body.message; 
         const mail = {
           from: name,
-          to: "grouptenlrb@gmail.com",
+          to: "ranyasmael@gmail.com",
           subject: "Contact Form Submission",
           html: `<p>Name: ${name}</p>
                  <p>Email: ${email}</p>
