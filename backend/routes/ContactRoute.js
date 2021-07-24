@@ -13,8 +13,8 @@ const contactEmail = nodemailer.createTransport({
     port : '465',
     secure:true,
     auth: {
-      user: 'ranyasmael@gmail.com',
-      pass: "rinder@7",
+      user: 'grouptenlrb@gmail.com',
+      pass: "uniquedot",
     },
   });
   
@@ -32,7 +32,7 @@ const contactEmail = nodemailer.createTransport({
         const message = req.body.message; 
         const mail = {
           from: name,
-          to: "ranyasmael@gmail.com",
+          to: "grouptenlrb@gmail.com",
           subject: "Contact Form Submission",
           html: `<p>Name: ${name}</p>
                  <p>Email: ${email}</p>
