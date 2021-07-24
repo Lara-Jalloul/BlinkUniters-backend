@@ -30,6 +30,7 @@ conn.on("disconnected", function () {
 });
 conn.on("error", console.error.bind(console, "connection error:"));
 app.use("/aboutus", require("./routes/AboutRoute"));
+app.use("/bands", require("./routes/BandRoute"));
 app.use("/faq", require("./routes/faqRoute"));
 app.use("/testimonials", require("./routes/testimonialsRoute"));
 app.use("/contactus", require("./routes/ContactRoute"));  
