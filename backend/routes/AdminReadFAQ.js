@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const Faq = require("../models/Faq");
+const Faqs = require("../models/Faq");
 router.get("/", (req, res) => {
-  Faq.find()
+  Faqs.find()
     .then((data) => {
-      if (!res) {
-        console.log("error");
+      if (res) {
+        res.json(data);
       }
-      res.json(data);
     })
     .catch((e) => {
       res.json(e.message);
