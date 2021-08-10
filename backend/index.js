@@ -1,13 +1,17 @@
+const path = require('path');
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config(); 
-const port = 5000;
+// const port = 5000;
+const port = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 
+
+app.use(express.static(path.resolve(__dirname, '../BlinkUniters-frontend/build')));
 
 
 const BandModel = require("./models/Bands");
@@ -59,8 +63,17 @@ app.use("/admin/readFAQ", require("./routes/AdminReadFAQ"));
 app.use("/admin/deleteFAQ/", require("./routes/AdminDelFAQ"));
 app.use("/admin/updateFAQ", require("./routes/AdminUpdFAQ"));
 
-app.use(cors());
+// app.use(cors());
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../BlinkUniters-frontend/build', 'index.html'));
+});
 
 app.listen(port, () => {
   console.log(`listening at http://localhost:${port}`);
 });
+
+
+
+
